@@ -3,29 +3,21 @@ TestSolution.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000000  00800100  00800100  00000148  2**0
+  0 .data         00000000  00800100  00800100  00000152  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         000000f4  00000000  00000000  00000054  2**1
+  1 .text         000000fe  00000000  00000000  00000054  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .comment      00000030  00000000  00000000  00000148  2**0
+  2 .comment      00000030  00000000  00000000  00000152  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000178  2**2
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000184  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 00000020  00000000  00000000  000001b4  2**0
+  4 .debug_info   00000780  00000000  00000000  000001c0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   000008b7  00000000  00000000  000001d4  2**0
+  5 .debug_abbrev 00000718  00000000  00000000  00000940  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 000007ea  00000000  00000000  00000a8b  2**0
+  6 .debug_line   0000016a  00000000  00000000  00001058  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   000002c3  00000000  00000000  00001275  2**0
-                  CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000024  00000000  00000000  00001538  2**2
-                  CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    00000423  00000000  00000000  0000155c  2**0
-                  CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    00000086  00000000  00000000  0000197f  2**0
-                  CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000028  00000000  00000000  00001a05  2**0
+  7 .debug_str    0000027d  00000000  00000000  000011c2  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -114,7 +106,7 @@ Disassembly of section .text:
   98:	11 e0       	ldi	r17, 0x01	; 1
   9a:	a0 e0       	ldi	r26, 0x00	; 0
   9c:	b1 e0       	ldi	r27, 0x01	; 1
-  9e:	e4 ef       	ldi	r30, 0xF4	; 244
+  9e:	ee ef       	ldi	r30, 0xFE	; 254
   a0:	f0 e0       	ldi	r31, 0x00	; 0
   a2:	00 e0       	ldi	r16, 0x00	; 0
   a4:	0b bf       	out	0x3b, r16	; 59
@@ -139,7 +131,7 @@ Disassembly of section .text:
   be:	b2 07       	cpc	r27, r18
   c0:	e1 f7       	brne	.-8      	; 0xba <.do_clear_bss_loop>
   c2:	02 d0       	rcall	.+4      	; 0xc8 <main>
-  c4:	15 c0       	rjmp	.+42     	; 0xf0 <_exit>
+  c4:	1a c0       	rjmp	.+52     	; 0xfa <_exit>
 
 000000c6 <__bad_interrupt>:
   c6:	9c cf       	rjmp	.-200    	; 0x0 <__vectors>
@@ -147,33 +139,32 @@ Disassembly of section .text:
 000000c8 <main>:
   c8:	8f ef       	ldi	r24, 0xFF	; 255
   ca:	81 bb       	out	0x11, r24	; 17
-  cc:	80 e0       	ldi	r24, 0x00	; 0
-  ce:	91 e0       	ldi	r25, 0x01	; 1
-  d0:	0c c0       	rjmp	.+24     	; 0xea <main+0x22>
-  d2:	92 bb       	out	0x12, r25	; 18
-  d4:	99 0f       	add	r25, r25
-	#else
-		//round up by default
-		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
-	#endif
+  cc:	90 e4       	ldi	r25, 0x40	; 64
+  ce:	80 e8       	ldi	r24, 0x80	; 128
+  d0:	92 bb       	out	0x12, r25	; 18
+  d2:	2f e3       	ldi	r18, 0x3F	; 63
+  d4:	32 e4       	ldi	r19, 0x42	; 66
+  d6:	4f e0       	ldi	r20, 0x0F	; 15
+  d8:	21 50       	subi	r18, 0x01	; 1
+  da:	30 40       	sbci	r19, 0x00	; 0
+  dc:	40 40       	sbci	r20, 0x00	; 0
+  de:	e1 f7       	brne	.-8      	; 0xd8 <main+0x10>
+  e0:	00 c0       	rjmp	.+0      	; 0xe2 <main+0x1a>
+  e2:	00 00       	nop
+  e4:	82 bb       	out	0x12, r24	; 18
+  e6:	2f e3       	ldi	r18, 0x3F	; 63
+  e8:	32 e4       	ldi	r19, 0x42	; 66
+  ea:	4f e0       	ldi	r20, 0x0F	; 15
+  ec:	21 50       	subi	r18, 0x01	; 1
+  ee:	30 40       	sbci	r19, 0x00	; 0
+  f0:	40 40       	sbci	r20, 0x00	; 0
+  f2:	e1 f7       	brne	.-8      	; 0xec <main+0x24>
+  f4:	00 c0       	rjmp	.+0      	; 0xf6 <main+0x2e>
+  f6:	00 00       	nop
+  f8:	eb cf       	rjmp	.-42     	; 0xd0 <main+0x8>
 
-	__builtin_avr_delay_cycles(__ticks_dc);
-  d6:	2f e7       	ldi	r18, 0x7F	; 127
-  d8:	3a e1       	ldi	r19, 0x1A	; 26
-  da:	46 e0       	ldi	r20, 0x06	; 6
-  dc:	21 50       	subi	r18, 0x01	; 1
-  de:	30 40       	sbci	r19, 0x00	; 0
-  e0:	40 40       	sbci	r20, 0x00	; 0
-  e2:	e1 f7       	brne	.-8      	; 0xdc <main+0x14>
-  e4:	00 c0       	rjmp	.+0      	; 0xe6 <main+0x1e>
-  e6:	00 00       	nop
-  e8:	8f 5f       	subi	r24, 0xFF	; 255
-  ea:	88 30       	cpi	r24, 0x08	; 8
-  ec:	90 f3       	brcs	.-28     	; 0xd2 <main+0xa>
-  ee:	ee cf       	rjmp	.-36     	; 0xcc <main+0x4>
+000000fa <_exit>:
+  fa:	f8 94       	cli
 
-000000f0 <_exit>:
-  f0:	f8 94       	cli
-
-000000f2 <__stop_program>:
-  f2:	ff cf       	rjmp	.-2      	; 0xf2 <__stop_program>
+000000fc <__stop_program>:
+  fc:	ff cf       	rjmp	.-2      	; 0xfc <__stop_program>

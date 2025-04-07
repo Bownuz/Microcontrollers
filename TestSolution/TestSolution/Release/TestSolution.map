@@ -29,6 +29,9 @@ Discarded input sections
 
  .data          0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega128/avr51/crtatmega128.o
  .bss           0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega128/avr51/crtatmega128.o
+ .text          0x00000000        0x0 Week 1/A.3/main.o
+ .data          0x00000000        0x0 Week 1/A.3/main.o
+ .bss           0x00000000        0x0 Week 1/A.3/main.o
  .text          0x00000000        0x0 Eindopdracht/buzzer.o
  .data          0x00000000        0x0 Eindopdracht/buzzer.o
  .bss           0x00000000        0x0 Eindopdracht/buzzer.o
@@ -36,88 +39,58 @@ Discarded input sections
                 0x00000000        0x6 Eindopdracht/buzzer.o
  .text.wait     0x00000000       0x1e Eindopdracht/buzzer.o
  .text.buzzerBeep
-                0x00000000       0x52 Eindopdracht/buzzer.o
- .debug_info    0x00000000      0x1db Eindopdracht/buzzer.o
- .debug_abbrev  0x00000000      0x147 Eindopdracht/buzzer.o
- .debug_loc     0x00000000      0x175 Eindopdracht/buzzer.o
- .debug_aranges
-                0x00000000       0x30 Eindopdracht/buzzer.o
- .debug_ranges  0x00000000       0x20 Eindopdracht/buzzer.o
- .debug_line    0x00000000      0x1ac Eindopdracht/buzzer.o
- .debug_str     0x00000000      0x20d Eindopdracht/buzzer.o
+                0x00000000       0x5a Eindopdracht/buzzer.o
  .comment       0x00000000       0x31 Eindopdracht/buzzer.o
- .debug_frame   0x00000000       0x64 Eindopdracht/buzzer.o
  .text          0x00000000        0x0 Eindopdracht/lcd.o
  .data          0x00000000        0x0 Eindopdracht/lcd.o
  .bss           0x00000000        0x0 Eindopdracht/lcd.o
  .text.lcd_strobe_lcd_e
-                0x00000000       0x26 Eindopdracht/lcd.o
+                0x00000000       0x1e Eindopdracht/lcd.o
  .text.lcd_cmd_high_nibble
-                0x00000000        0xc Eindopdracht/lcd.o
+                0x00000000        0x8 Eindopdracht/lcd.o
  .text.lcd_cmd_low_nibble
-                0x00000000       0x12 Eindopdracht/lcd.o
+                0x00000000        0xe Eindopdracht/lcd.o
  .text.lcd_data_high_nibble
-                0x00000000        0xc Eindopdracht/lcd.o
+                0x00000000        0x8 Eindopdracht/lcd.o
  .text.lcd_data_low_nibble
-                0x00000000       0x12 Eindopdracht/lcd.o
+                0x00000000        0xe Eindopdracht/lcd.o
  .text.lcd_command
-                0x00000000       0x1a Eindopdracht/lcd.o
+                0x00000000       0x18 Eindopdracht/lcd.o
  .text.lcd_data
-                0x00000000       0x1a Eindopdracht/lcd.o
+                0x00000000       0x18 Eindopdracht/lcd.o
  .text.lcd_init_4bits_mode
-                0x00000000       0x3a Eindopdracht/lcd.o
+                0x00000000       0x38 Eindopdracht/lcd.o
  .text.lcd_clear
-                0x00000000        0x8 Eindopdracht/lcd.o
+                0x00000000        0x6 Eindopdracht/lcd.o
  .text.lcd_return_home
-                0x00000000        0x8 Eindopdracht/lcd.o
+                0x00000000        0x6 Eindopdracht/lcd.o
  .text.lcd_fill_custom_chars
-                0x00000000       0x2e Eindopdracht/lcd.o
+                0x00000000       0x26 Eindopdracht/lcd.o
  .text.lcd_data_address
-                0x00000000        0x8 Eindopdracht/lcd.o
+                0x00000000        0x6 Eindopdracht/lcd.o
  .text.lcd_set_line1
-                0x00000000        0x8 Eindopdracht/lcd.o
+                0x00000000        0x6 Eindopdracht/lcd.o
  .text.lcd_set_line2
-                0x00000000        0x8 Eindopdracht/lcd.o
+                0x00000000        0x6 Eindopdracht/lcd.o
  .text.lcd_write_string
                 0x00000000       0x3c Eindopdracht/lcd.o
  .rodata.charset
                 0x00000000       0x10 Eindopdracht/lcd.o
- .debug_info    0x00000000      0x500 Eindopdracht/lcd.o
- .debug_abbrev  0x00000000      0x17c Eindopdracht/lcd.o
- .debug_loc     0x00000000      0x2c3 Eindopdracht/lcd.o
- .debug_aranges
-                0x00000000       0x90 Eindopdracht/lcd.o
- .debug_ranges  0x00000000       0x80 Eindopdracht/lcd.o
- .debug_line    0x00000000      0x340 Eindopdracht/lcd.o
- .debug_str     0x00000000      0x2e7 Eindopdracht/lcd.o
  .comment       0x00000000       0x31 Eindopdracht/lcd.o
- .debug_frame   0x00000000      0x134 Eindopdracht/lcd.o
- .text          0x00000000        0x0 Week 1/B.4/main.o
- .data          0x00000000        0x0 Week 1/B.4/main.o
- .bss           0x00000000        0x0 Week 1/B.4/main.o
  .text          0x00000000        0x0 Eindopdracht/ultrasone.o
  .data          0x00000000        0x0 Eindopdracht/ultrasone.o
  .bss           0x00000000        0x0 Eindopdracht/ultrasone.o
  .text.ultrasoneInit
-                0x00000000       0x1a Eindopdracht/ultrasone.o
+                0x00000000       0x12 Eindopdracht/ultrasone.o
  .text.sendTrigger
-                0x00000000       0x16 Eindopdracht/ultrasone.o
+                0x00000000        0xe Eindopdracht/ultrasone.o
  .text.measurePulse
                 0x00000000       0x22 Eindopdracht/ultrasone.o
  .text.calculateDistance
                 0x00000000       0x1a Eindopdracht/ultrasone.o
  .bss.pulseDuration
                 0x00000000        0x2 Eindopdracht/ultrasone.o
- .debug_info    0x00000000      0x1a6 Eindopdracht/ultrasone.o
- .debug_abbrev  0x00000000      0x137 Eindopdracht/ultrasone.o
- .debug_loc     0x00000000       0x73 Eindopdracht/ultrasone.o
- .debug_aranges
-                0x00000000       0x38 Eindopdracht/ultrasone.o
- .debug_ranges  0x00000000       0x28 Eindopdracht/ultrasone.o
- .debug_line    0x00000000      0x1af Eindopdracht/ultrasone.o
- .debug_str     0x00000000      0x22e Eindopdracht/ultrasone.o
  .comment       0x00000000       0x31 Eindopdracht/ultrasone.o
- .debug_frame   0x00000000       0x54 Eindopdracht/ultrasone.o
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr51\libm.a(mulsf3.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr51\libm.a(mulsf3.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr51\libm.a(mulsf3.o)
@@ -228,9 +201,9 @@ Linker script and memory map
 
 Address of section .data set to 0x800100
 LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega128/avr51/crtatmega128.o
+LOAD Week 1/A.3/main.o
 LOAD Eindopdracht/buzzer.o
 LOAD Eindopdracht/lcd.o
-LOAD Week 1/B.4/main.o
 LOAD Eindopdracht/ultrasone.o
 START GROUP
 LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr51\libm.a
@@ -341,7 +314,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000       0xf4
+.text           0x00000000       0xfe
  *(.vectors)
  .vectors       0x00000000       0x8c C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega128/avr51/crtatmega128.o
                 0x00000000                __vector_default
@@ -437,13 +410,14 @@ END GROUP
                 0x000000c6                __vector_20
                 0x000000c8                . = ALIGN (0x2)
  *(.text.*)
- .text.main     0x000000c8       0x28 Week 1/B.4/main.o
+ .text.startup.main
+                0x000000c8       0x32 Week 1/A.3/main.o
                 0x000000c8                main
-                0x000000f0                . = ALIGN (0x2)
+                0x000000fa                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000000f0        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
-                0x000000f0                _exit
-                0x000000f0                exit
+ .fini9         0x000000fa        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
+                0x000000fa                _exit
+                0x000000fa                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -462,11 +436,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000000f0        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
+ .fini0         0x000000fa        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
  *(.fini0)
-                0x000000f4                _etext = .
+                0x000000fe                _etext = .
 
-.data           0x00800100        0x0 load address 0x000000f4
+.data           0x00800100        0x0 load address 0x000000fe
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -484,8 +458,8 @@ END GROUP
  *(.bss*)
  *(COMMON)
                 0x00800100                PROVIDE (__bss_end, .)
-                0x000000f4                __data_load_start = LOADADDR (.data)
-                0x000000f4                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x000000fe                __data_load_start = LOADADDR (.data)
+                0x000000fe                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800100        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
@@ -533,7 +507,7 @@ END GROUP
 
 .comment        0x00000000       0x30
  *(.comment)
- .comment       0x00000000       0x30 Week 1/B.4/main.o
+ .comment       0x00000000       0x30 Week 1/A.3/main.o
                                  0x31 (size before relaxing)
 
 .note.gnu.avr.deviceinfo
@@ -556,42 +530,33 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000       0x20
+.debug_aranges
  *(.debug_aranges)
- .debug_aranges
-                0x00000000       0x20 Week 1/B.4/main.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000      0x8b7
+.debug_info     0x00000000      0x780
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x780 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega128/avr51/crtatmega128.o
- .debug_info    0x00000780      0x137 Week 1/B.4/main.o
 
-.debug_abbrev   0x00000000      0x7ea
+.debug_abbrev   0x00000000      0x718
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x718 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega128/avr51/crtatmega128.o
- .debug_abbrev  0x00000718       0xd2 Week 1/B.4/main.o
 
-.debug_line     0x00000000      0x2c3
+.debug_line     0x00000000      0x16a
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x16a C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega128/avr51/crtatmega128.o
- .debug_line    0x0000016a      0x159 Week 1/B.4/main.o
 
-.debug_frame    0x00000000       0x24
+.debug_frame
  *(.debug_frame)
- .debug_frame   0x00000000       0x24 Week 1/B.4/main.o
 
-.debug_str      0x00000000      0x423
+.debug_str      0x00000000      0x27d
  *(.debug_str)
  .debug_str     0x00000000      0x27d C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega128/avr51/crtatmega128.o
- .debug_str     0x0000027d      0x1a6 Week 1/B.4/main.o
-                                0x1da (size before relaxing)
 
-.debug_loc      0x00000000       0x86
+.debug_loc
  *(.debug_loc)
- .debug_loc     0x00000000       0x86 Week 1/B.4/main.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -611,9 +576,8 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000       0x28
+.debug_ranges
  *(.debug_ranges)
- .debug_ranges  0x00000000       0x28 Week 1/B.4/main.o
 
 .debug_macro
  *(.debug_macro)

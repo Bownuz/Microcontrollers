@@ -47,8 +47,7 @@
       <ToolOptions>
         <InterfaceProperties>
         </InterfaceProperties>
-        <InterfaceName>
-        </InterfaceName>
+        <InterfaceName>JTAG</InterfaceName>
       </ToolOptions>
       <ToolType>com.atmel.avrdbg.tool.simulator</ToolType>
       <ToolNumber>
@@ -57,21 +56,23 @@
     </com_atmel_avrdbg_tool_simulator>
     <avrtoolinterface>JTAG</avrtoolinterface>
     <custom>
-      <ToolOptions xmlns="">
+      <ToolOptions>
         <InterfaceProperties>
+          <JtagDbgClock>200000</JtagDbgClock>
         </InterfaceProperties>
         <InterfaceName>
         </InterfaceName>
       </ToolOptions>
-      <ToolType xmlns="">custom</ToolType>
-      <ToolNumber xmlns="">
+      <ToolType>custom</ToolType>
+      <ToolNumber>
       </ToolNumber>
-      <ToolName xmlns="">Custom Programming Tool</ToolName>
+      <ToolName>Custom Programming Tool</ToolName>
     </custom>
     <com_atmel_avrdbg_tool_atmelice>
       <ToolOptions>
         <InterfaceProperties>
           <JtagDbgClock>200000</JtagDbgClock>
+          <IspClock>125000</IspClock>
         </InterfaceProperties>
         <InterfaceName>JTAG</InterfaceName>
       </ToolOptions>
@@ -79,7 +80,7 @@
       <ToolNumber>J41800088662</ToolNumber>
       <ToolName>Atmel-ICE</ToolName>
     </com_atmel_avrdbg_tool_atmelice>
-    <avrtoolinterfaceclock>200000</avrtoolinterfaceclock>
+    <avrtoolinterfaceclock>125000</avrtoolinterfaceclock>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
@@ -162,18 +163,39 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="Week 1\A.3\main.c">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Week 1\A.2\main.c">
+      <SubType>compile</SubType>
+    </None>
     <None Include="Week 5\B.2\main.c">
       <SubType>compile</SubType>
     </None>
-    <Compile Include="Week 3\B.1\lcd.h">
+    <Compile Include="Eindopdracht\buzzer.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Week 4\B.4\lcd.h">
+    <Compile Include="Eindopdracht\buzzer.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Week 4\B.4\main.c">
+    <Compile Include="Eindopdracht\lcd.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Eindopdracht\lcd.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="Eindopdracht\main.c">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Week 3\B.1\lcd.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Week 4\B.4\lcd.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Week 4\B.4\main.c">
+      <SubType>compile</SubType>
+    </None>
     <None Include="Week 5\B.1\main.c">
       <SubType>compile</SubType>
     </None>
@@ -201,32 +223,37 @@
     <None Include="Week 1\B.4\main.c">
       <SubType>compile</SubType>
     </None>
-    <None Include="Week 1\B.5\main.c">
+    <Compile Include="Week 1\B.5\main.c">
       <SubType>compile</SubType>
-    </None>
+    </Compile>
     <None Include="Week 1\B.6\main.c">
       <SubType>compile</SubType>
     </None>
     <None Include="Week 2\B.2\main.c">
       <SubType>compile</SubType>
     </None>
-    <Compile Include="Week 3\B.1\lcd.c">
+    <None Include="Week 3\B.1\lcd.c">
       <SubType>compile</SubType>
-    </Compile>
+    </None>
     <None Include="Week 3\B.1\main.c">
       <SubType>compile</SubType>
     </None>
-    <Compile Include="Week 3\B.1\teller.c">
+    <Compile Include="Eindopdracht\ultrasone.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Week 3\B.1\teller.h">
+    <Compile Include="Eindopdracht\ultrasone.h">
       <SubType>compile</SubType>
     </Compile>
+    <None Include="Week 2\B.3\main.c">
+      <SubType>compile</SubType>
+    </None>
     <None Include="Week 2\B.4\main.c">
       <SubType>compile</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Eindopdracht" />
+    <Folder Include="Week 1\A.2" />
     <Folder Include="Week 5" />
     <Folder Include="Week 1\" />
     <Folder Include="Week 1\A.3" />

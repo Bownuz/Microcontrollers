@@ -1,33 +1,35 @@
-#define F_CPU 1000000UL // Pas aan naar je kloksnelheid
+#define F_CPU 10000000UL
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
-volatile uint8_t state = 0; // Om te schakelen tussen hoog en laag
+volatile uint8_t state = 0;      // 0 = laag, 1 = hoog
+volatile uint16_t counter = 0;   // teller voor duur
 
 void timer2_init() {
-	TCCR2 = (1 << WGM12) | (1 << CS22) | (1 << CS20); // CTC mode, prescaler 128
-	OCR2 = 117; // 15ms bij 1MHz klok met prescaler 128
-	ETIMSK |= (1 << OCIE2); // Interrupt aanzetten voor Timer 2
+	TCCR2 = (1 << WGM21) | (1 << CS22) | (1 << CS20); // CTC mode, prescaler 1024
+	OCR2 = 155; // 1ms interrupt bij 10MHz en prescaler 1024
+	TIMSK |= (1 << OCIE2); // Interrupt aanzetten
 }
 
 ISR(TIMER2_COMP_vect) {
-	if (state == 0) {
-		PORTD |= (1 << PD7);  // Zet PD7 hoog
-		OCR2 = 195;           // 25ms wachten
+	counter++;
+	if (state == 0 && counter >= 25) {      // laag -> hoog na 25ms
+		PORTD |= (1 << PD7);
 		state = 1;
-		} else {
-		PORTD &= ~(1 << PD7); // Zet PD7 laag
-		OCR2 = 117;           // 15ms wachten
+		counter = 0;
+	} else if (state == 1 && counter >= 15) { // hoog -> laag na 15ms
+		PORTD &= ~(1 << PD7);
 		state = 0;
+		counter = 0;
 	}
 }
 
 int main(void) {
-	DDRD |= (1 << PD7); // PD7 als output
-	timer2_init();      // Timer instellen
-	sei();              // Globale interrupts inschakelen
+	DDRD |= (1 << PD7); // PORTD.7 als output
+	timer2_init();      // Timer initialiseren
+	sei();              // Globale interrupts aanzetten
 
 	while (1) {
-		// Hoofdlus, hier gebeurt niks, alles wordt gedaan in de interrupt
+		// niets nodig hier
 	}
 }
