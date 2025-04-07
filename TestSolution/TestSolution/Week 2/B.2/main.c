@@ -6,13 +6,6 @@
 // Houdt bij welke LED aan staat
 int static currentBit = 1;
 
-// Eenvoudige wachttijd in milliseconden
-void wait(int ms) {
-	for (int i = 0; i < ms; i++) {
-		_delay_ms(1); // Let op: werkt alleen tot 30ms per keer bij 8MHz
-	}
-}
-
 // Functie om de LED te veranderen
 void changeLampState() {
 	PORTC = currentBit;       // Zet de huidige LED aan

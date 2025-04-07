@@ -28,10 +28,10 @@ void adcInit( void )
 int main( void )
 {
 	DDRF = 0x00;				// set PORTF for input (ADC)
-	DDRA = 0xFF;				// set PORTA for output 
+	DDRA = 0xFF;				// set PORTA for output
 	DDRB = 0xFF;				// set PORTB for output
 	adcInit();					// initialize ADC
-
+	
 	while (1)
 	{
 		PORTB = ADCL;			// Show MSB/LSB (bit 10:0) of ADC

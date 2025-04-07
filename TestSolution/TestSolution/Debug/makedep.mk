@@ -6,7 +6,7 @@ Eindopdracht\buzzer.c
 
 Eindopdracht\lcd.c
 
-Week 1\B.4\main.c
-
 Eindopdracht\ultrasone.c
+
+Week 2\B.3\main.c
 

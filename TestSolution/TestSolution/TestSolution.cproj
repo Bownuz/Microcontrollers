@@ -223,9 +223,9 @@
     <None Include="Week 1\B.4\main.c">
       <SubType>compile</SubType>
     </None>
-    <Compile Include="Week 1\B.5\main.c">
+    <None Include="Week 1\B.5\main.c">
       <SubType>compile</SubType>
-    </Compile>
+    </None>
     <None Include="Week 1\B.6\main.c">
       <SubType>compile</SubType>
     </None>
@@ -244,9 +244,9 @@
     <Compile Include="Eindopdracht\ultrasone.h">
       <SubType>compile</SubType>
     </Compile>
-    <None Include="Week 2\B.3\main.c">
+    <Compile Include="Week 2\B.3\main.c">
       <SubType>compile</SubType>
-    </None>
+    </Compile>
     <None Include="Week 2\B.4\main.c">
       <SubType>compile</SubType>
     </None>

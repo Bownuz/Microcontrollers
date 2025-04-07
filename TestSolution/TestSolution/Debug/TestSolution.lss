@@ -3,29 +3,31 @@ TestSolution.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000000  00800100  00800100  00000148  2**0
+  0 .data         00000012  00800100  0000015c  000001f0  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         000000f4  00000000  00000000  00000054  2**1
+  1 .text         0000015c  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .comment      00000030  00000000  00000000  00000148  2**0
+  2 .bss          00000001  00800112  00800112  00000202  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000202  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000178  2**2
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000234  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 00000020  00000000  00000000  000001b4  2**0
+  5 .debug_aranges 00000038  00000000  00000000  00000270  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   000008b7  00000000  00000000  000001d4  2**0
+  6 .debug_info   00000971  00000000  00000000  000002a8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 000007ea  00000000  00000000  00000a8b  2**0
+  7 .debug_abbrev 0000087f  00000000  00000000  00000c19  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   000002c3  00000000  00000000  00001275  2**0
+  8 .debug_line   0000035e  00000000  00000000  00001498  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000024  00000000  00000000  00001538  2**2
+  9 .debug_frame  00000054  00000000  00000000  000017f8  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    00000423  00000000  00000000  0000155c  2**0
+ 10 .debug_str    00000458  00000000  00000000  0000184c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    00000086  00000000  00000000  0000197f  2**0
+ 11 .debug_loc    00000021  00000000  00000000  00001ca4  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000028  00000000  00000000  00001a05  2**0
+ 12 .debug_ranges 00000028  00000000  00000000  00001cc5  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -114,20 +116,20 @@ Disassembly of section .text:
   98:	11 e0       	ldi	r17, 0x01	; 1
   9a:	a0 e0       	ldi	r26, 0x00	; 0
   9c:	b1 e0       	ldi	r27, 0x01	; 1
-  9e:	e4 ef       	ldi	r30, 0xF4	; 244
-  a0:	f0 e0       	ldi	r31, 0x00	; 0
+  9e:	ec e5       	ldi	r30, 0x5C	; 92
+  a0:	f1 e0       	ldi	r31, 0x01	; 1
   a2:	00 e0       	ldi	r16, 0x00	; 0
   a4:	0b bf       	out	0x3b, r16	; 59
   a6:	02 c0       	rjmp	.+4      	; 0xac <__do_copy_data+0x14>
   a8:	07 90       	elpm	r0, Z+
   aa:	0d 92       	st	X+, r0
-  ac:	a0 30       	cpi	r26, 0x00	; 0
+  ac:	a2 31       	cpi	r26, 0x12	; 18
   ae:	b1 07       	cpc	r27, r17
   b0:	d9 f7       	brne	.-10     	; 0xa8 <__do_copy_data+0x10>
 
 000000b2 <__do_clear_bss>:
   b2:	21 e0       	ldi	r18, 0x01	; 1
-  b4:	a0 e0       	ldi	r26, 0x00	; 0
+  b4:	a2 e1       	ldi	r26, 0x12	; 18
   b6:	b1 e0       	ldi	r27, 0x01	; 1
   b8:	01 c0       	rjmp	.+2      	; 0xbc <.do_clear_bss_start>
 
@@ -135,45 +137,146 @@ Disassembly of section .text:
   ba:	1d 92       	st	X+, r1
 
 000000bc <.do_clear_bss_start>:
-  bc:	a0 30       	cpi	r26, 0x00	; 0
+  bc:	a3 31       	cpi	r26, 0x13	; 19
   be:	b2 07       	cpc	r27, r18
   c0:	e1 f7       	brne	.-8      	; 0xba <.do_clear_bss_loop>
-  c2:	02 d0       	rcall	.+4      	; 0xc8 <main>
-  c4:	15 c0       	rjmp	.+42     	; 0xf0 <_exit>
+  c2:	3c d0       	rcall	.+120    	; 0x13c <main>
+  c4:	49 c0       	rjmp	.+146    	; 0x158 <_exit>
 
 000000c6 <__bad_interrupt>:
   c6:	9c cf       	rjmp	.-200    	; 0x0 <__vectors>
 
-000000c8 <main>:
+000000c8 <init_button>:
+};
+
+uint8_t digit = 0; 
+
+void init_button() {
+	DDRD = 0xFF; 
   c8:	8f ef       	ldi	r24, 0xFF	; 255
   ca:	81 bb       	out	0x11, r24	; 17
-  cc:	80 e0       	ldi	r24, 0x00	; 0
-  ce:	91 e0       	ldi	r25, 0x01	; 1
-  d0:	0c c0       	rjmp	.+24     	; 0xea <main+0x22>
-  d2:	92 bb       	out	0x12, r25	; 18
-  d4:	99 0f       	add	r25, r25
+	DDRB &= ~(1 << BUTTON_UP_PIN);   
+  cc:	87 b3       	in	r24, 0x17	; 23
+  ce:	8d 7f       	andi	r24, 0xFD	; 253
+  d0:	87 bb       	out	0x17, r24	; 23
+	DDRB &= ~(1 << BUTTON_DOWN_PIN);
+  d2:	87 b3       	in	r24, 0x17	; 23
+  d4:	8b 7f       	andi	r24, 0xFB	; 251
+  d6:	87 bb       	out	0x17, r24	; 23
+	PORTB |= (1 << BUTTON_UP_PIN) | (1 << BUTTON_DOWN_PIN); 
+  d8:	88 b3       	in	r24, 0x18	; 24
+  da:	86 60       	ori	r24, 0x06	; 6
+  dc:	88 bb       	out	0x18, r24	; 24
+  de:	08 95       	ret
+
+000000e0 <update_display>:
+}
+
+void update_display(uint8_t digit) {
+	PORTD = hex_to_7seg[digit];  
+  e0:	e8 2f       	mov	r30, r24
+  e2:	f0 e0       	ldi	r31, 0x00	; 0
+  e4:	e0 50       	subi	r30, 0x00	; 0
+  e6:	ff 4f       	sbci	r31, 0xFF	; 255
+  e8:	80 81       	ld	r24, Z
+  ea:	82 bb       	out	0x12, r24	; 18
+  ec:	08 95       	ret
+
+000000ee <check_buttons>:
+}
+
+void check_buttons() {
+	// Controleer of beide knoppen ingedrukt zijn (reset naar 0)
+	if ((PINB & (1 << BUTTON_UP_PIN)) && (PINB & (1 << BUTTON_DOWN_PIN))) {
+  ee:	b1 9b       	sbis	0x16, 1	; 22
+  f0:	0b c0       	rjmp	.+22     	; 0x108 <check_buttons+0x1a>
+  f2:	b2 9b       	sbis	0x16, 2	; 22
+  f4:	09 c0       	rjmp	.+18     	; 0x108 <check_buttons+0x1a>
+		digit = 0; // Reset naar 0
+  f6:	10 92 12 01 	sts	0x0112, r1	; 0x800112 <__data_end>
+		update_display(digit);
+  fa:	80 e0       	ldi	r24, 0x00	; 0
+  fc:	f1 df       	rcall	.-30     	; 0xe0 <update_display>
+		while (!(PINB & (1 << BUTTON_UP_PIN)) && !(PINB & (1 << BUTTON_DOWN_PIN)));  // Wacht tot knoppen losgelaten zijn
+  fe:	b1 99       	sbic	0x16, 1	; 22
+ 100:	1c c0       	rjmp	.+56     	; 0x13a <check_buttons+0x4c>
+ 102:	b2 9b       	sbis	0x16, 2	; 22
+ 104:	fc cf       	rjmp	.-8      	; 0xfe <check_buttons+0x10>
+ 106:	08 95       	ret
+	}
+	// Controleer of de UP knop ingedrukt is
+	else if ((PINB & (1 << BUTTON_UP_PIN))) {
+ 108:	b1 9b       	sbis	0x16, 1	; 22
+ 10a:	0b c0       	rjmp	.+22     	; 0x122 <check_buttons+0x34>
+		// Up knop ingedrukt: verhoog digit
+		if (digit < 16) {
+ 10c:	80 91 12 01 	lds	r24, 0x0112	; 0x800112 <__data_end>
+ 110:	80 31       	cpi	r24, 0x10	; 16
+ 112:	20 f4       	brcc	.+8      	; 0x11c <check_buttons+0x2e>
+			digit++;
+ 114:	8f 5f       	subi	r24, 0xFF	; 255
+ 116:	80 93 12 01 	sts	0x0112, r24	; 0x800112 <__data_end>
+			update_display(digit);
+ 11a:	e2 df       	rcall	.-60     	; 0xe0 <update_display>
+		}
+		while (!(PINB & (1 << BUTTON_UP_PIN)));  // Wacht tot de knop wordt losgelaten
+ 11c:	b1 9b       	sbis	0x16, 1	; 22
+ 11e:	fe cf       	rjmp	.-4      	; 0x11c <check_buttons+0x2e>
+ 120:	08 95       	ret
+	}
+	// Controleer of de DOWN knop ingedrukt is
+	else if ((PINB & (1 << BUTTON_DOWN_PIN))) {
+ 122:	b2 9b       	sbis	0x16, 2	; 22
+ 124:	0a c0       	rjmp	.+20     	; 0x13a <check_buttons+0x4c>
+		// Down knop ingedrukt: verlaag digit
+		if (digit > 0) {
+ 126:	80 91 12 01 	lds	r24, 0x0112	; 0x800112 <__data_end>
+ 12a:	88 23       	and	r24, r24
+ 12c:	21 f0       	breq	.+8      	; 0x136 <check_buttons+0x48>
+			digit--;
+ 12e:	81 50       	subi	r24, 0x01	; 1
+ 130:	80 93 12 01 	sts	0x0112, r24	; 0x800112 <__data_end>
+			update_display(digit);
+ 134:	d5 df       	rcall	.-86     	; 0xe0 <update_display>
+		}
+		while (!(PINB & (1 << BUTTON_DOWN_PIN)));  // Wacht tot de knop wordt losgelaten
+ 136:	b2 9b       	sbis	0x16, 2	; 22
+ 138:	fe cf       	rjmp	.-4      	; 0x136 <check_buttons+0x48>
+ 13a:	08 95       	ret
+
+0000013c <main>:
+	}
+}
+
+int main(void) {
+	init_button();
+ 13c:	c5 df       	rcall	.-118    	; 0xc8 <init_button>
+	update_display(0);
+ 13e:	80 e0       	ldi	r24, 0x00	; 0
+	
+	while (1) {
+		check_buttons(); 
+ 140:	cf df       	rcall	.-98     	; 0xe0 <update_display>
+ 142:	d5 df       	rcall	.-86     	; 0xee <check_buttons>
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
-  d6:	2f e7       	ldi	r18, 0x7F	; 127
-  d8:	3a e1       	ldi	r19, 0x1A	; 26
-  da:	46 e0       	ldi	r20, 0x06	; 6
-  dc:	21 50       	subi	r18, 0x01	; 1
-  de:	30 40       	sbci	r19, 0x00	; 0
-  e0:	40 40       	sbci	r20, 0x00	; 0
-  e2:	e1 f7       	brne	.-8      	; 0xdc <main+0x14>
-  e4:	00 c0       	rjmp	.+0      	; 0xe6 <main+0x1e>
-  e6:	00 00       	nop
-  e8:	8f 5f       	subi	r24, 0xFF	; 255
-  ea:	88 30       	cpi	r24, 0x08	; 8
-  ec:	90 f3       	brcs	.-28     	; 0xd2 <main+0xa>
-  ee:	ee cf       	rjmp	.-36     	; 0xcc <main+0x4>
+ 144:	2f e7       	ldi	r18, 0x7F	; 127
+ 146:	8a e1       	ldi	r24, 0x1A	; 26
+ 148:	96 e0       	ldi	r25, 0x06	; 6
+ 14a:	21 50       	subi	r18, 0x01	; 1
+ 14c:	80 40       	sbci	r24, 0x00	; 0
+ 14e:	90 40       	sbci	r25, 0x00	; 0
+ 150:	e1 f7       	brne	.-8      	; 0x14a <main+0xe>
+ 152:	00 c0       	rjmp	.+0      	; 0x154 <main+0x18>
+ 154:	00 00       	nop
+ 156:	f5 cf       	rjmp	.-22     	; 0x142 <main+0x6>
 
-000000f0 <_exit>:
-  f0:	f8 94       	cli
+00000158 <_exit>:
+ 158:	f8 94       	cli
 
-000000f2 <__stop_program>:
-  f2:	ff cf       	rjmp	.-2      	; 0xf2 <__stop_program>
+0000015a <__stop_program>:
+ 15a:	ff cf       	rjmp	.-2      	; 0x15a <__stop_program>

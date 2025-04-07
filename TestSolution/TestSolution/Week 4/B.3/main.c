@@ -3,8 +3,6 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
-#include "lcd.h"
-
 
 #define BIT(x)	(1 << (x))
 
@@ -27,14 +25,6 @@ void adcInit( void )
 }
 
 
-uint16_t readADC(void)
-{
-	ADCSRA |= BIT(6);			        // Start ADC
-	while (ADCSRA & BIT(6));		    // Wacht tot klaar
-	return ADC;                         // Volledige 10-bit waarde
-}
-
-
 // Main program: Counting on T1
 int main( void )
 {
@@ -42,21 +32,11 @@ int main( void )
 	DDRA = 0xFF;					// set PORTA for output 
 	adcInit();						// initialize ADC
 
-	char buffer[16];        // Voor sprintf()
-	
 	while (1)
 	{
-		uint16_t adcValue = readADC();
+		ADCSRA |= BIT(6);				// Start ADC
+		while ( ADCSRA & BIT(6) ) ;		// Wait for completion
 		PORTA = ADCH;					// Show MSB (bit 9:2) of ADC
-		
-		// Toon op LCD
-		lcd_set_line1();
-		lcd_write_string("ADC Waarde:     ");
-
-		lcd_set_line2();
-		sprintf(buffer, "%4u", adcValue);
-		lcd_write_string(buffer);
-		
 		wait(500);						// every 50 ms (busy waiting)
 	}
 }
